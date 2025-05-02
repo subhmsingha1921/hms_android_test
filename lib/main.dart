@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart'; // Import dotenv
+import 'package:hms_android_test/room_screen.dart'; // Import DummyRoomScreen
 
-void main() {
+Future<void> main() async {
+  // Make main async
+  WidgetsFlutterBinding.ensureInitialized(); // Ensure bindings are initialized
+  await dotenv.load(fileName: ".env"); // Load .env file
   runApp(const MyApp());
 }
 
@@ -31,10 +36,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // Redirect home to DummyRoomScreen for testing
+      home: const RoomScreen(), // Changed home to DummyRoomScreen
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'), // Original home commented out
     );
   }
 }
+
+// Keep MyHomePage for now, but it's not the initial route anymore
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});

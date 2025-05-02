@@ -39,6 +39,7 @@ dependencies:
   # HMS SDK
   hmssdk_flutter: ^1.10.6 # Check pub.dev for the latest version
   flutter_dotenv: ^5.2.1 # Check pub.dev for the latest version
+  permission_handler: ^12.0.0+1
 
 dev_dependencies:
   flutter_test:
